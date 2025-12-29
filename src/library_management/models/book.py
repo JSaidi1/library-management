@@ -45,4 +45,4 @@ class Book(Document, Borrowable, Consultable):
             self.is_borrowed = False
         
     def consult(self):
-        super().consulter()
+        super().consult()
