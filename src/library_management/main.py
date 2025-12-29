@@ -1,6 +1,6 @@
-import sys
 from data.documents_store_data import list_documents
 from exceptions.document_not_borrowed_exception import DocumentNotBorrowedException
+from exceptions.document_already_borrowed_exception import DocumentAlreadyBorrowedException
 
 
 # =================================================================================================================
@@ -53,7 +53,10 @@ def display_menu():
             #Borrow
             document_id = choose_document(list_documents)
             if hasattr(list_documents[document_id-1], "borrow"):
-                list_documents[document_id-1].borrow()
+                try:
+                    list_documents[document_id-1].borrow()
+                except DocumentAlreadyBorrowedException as e:
+                    print(e)
             else:
                 print(f"The document is not borrowable:")
                 list_documents[document_id-1].show_informations()
