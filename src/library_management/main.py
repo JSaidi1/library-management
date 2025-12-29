@@ -1,5 +1,6 @@
 import sys
 from data.documents_store_data import list_documents
+from exceptions.document_not_borrowed_exception import DocumentNotBorrowedException
 
 
 # =================================================================================================================
@@ -60,7 +61,16 @@ def display_menu():
         elif choosen_action == "3":
             print("\nYou chose: '3. Give back': ")
             #Give back
-
+            document_id = choose_document(list_documents)
+            if hasattr(list_documents[document_id-1], "give_back"):
+                try:
+                    list_documents[document_id-1].give_back()
+                except DocumentNotBorrowedException as e:
+                    print(e)
+            else:
+                print(f"The document is not borrowable (you cannot give it back):")
+                list_documents[document_id-1].show_informations()
+            print("\n")
         elif choosen_action == "4":
             print("\nYou chose: 'Add Document (admin)': ")
             #Add Document
