@@ -1,9 +1,9 @@
-from src.library_management.enums.genre import Genre
-from src.library_management.exceptions.document_already_borrowed_exception import DocumentAlreadyBorrowedException
-from src.library_management.exceptions.document_not_borrowed_exception import DocumentNotBorrowedException
-from src.library_management.interfaces.borrowable import Borrowable
-from src.library_management.interfaces.consultable import Consultable
-from src.library_management.models.document import Document
+from enums.genre import Genre
+from exceptions.document_already_borrowed_exception import DocumentAlreadyBorrowedException
+from exceptions.document_not_borrowed_exception import DocumentNotBorrowedException
+from interfaces.borrowable import Borrowable
+from interfaces.consultable import Consultable
+from models.document import Document
 
 
 class Book(Document, Borrowable, Consultable):

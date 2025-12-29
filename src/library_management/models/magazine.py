@@ -1,5 +1,5 @@
-from src.library_management.interfaces.consultable import Consultable
-from src.library_management.models.document import Document
+from interfaces.consultable import Consultable
+from models.document import Document
 
 
 class Magazine(Document, Consultable):
