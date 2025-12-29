@@ -1,3 +1,4 @@
+import sys
 from data.documents_store_data import list_documents
 
 
@@ -49,7 +50,13 @@ def display_menu():
         elif choosen_action == "2":
             print("\nYou chose: '2. Borrow': ")
             #Borrow
-
+            document_id = choose_document(list_documents)
+            if hasattr(list_documents[document_id-1], "borrow"):
+                list_documents[document_id-1].borrow()
+            else:
+                print(f"The document is not borrowable:")
+                list_documents[document_id-1].show_informations()
+            print("\n")
         elif choosen_action == "3":
             print("\nYou chose: '3. Give back': ")
             #Give back
