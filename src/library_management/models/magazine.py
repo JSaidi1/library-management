@@ -10,5 +10,5 @@ class Magazine(Document, Consultable):
     def show_informations(self):
         print(f"Magazine ({self.title, self.year_of_publication, self.number})")
 
-    def consulter(self):
+    def consult(self):
         super().consult()
