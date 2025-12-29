@@ -4,6 +4,18 @@ from data.documents_store_data import list_documents
 # =================================================================================================================
 #                                                   FUNCTIONS                            
 # =================================================================================================================
+def menu():
+    return """
+    ====== LIBRARY MANAGEMENT ======
+    1. Consult 
+    2. Borrow 
+    3. Give back
+    4. Add Document (admin) 
+    5. Remove Document (admin)
+    0. Exit
+    ==================================
+    """
+
 def display_list(liste_documents) -> dict:
     cpt = 1
     for document in liste_documents:
@@ -20,19 +32,9 @@ def choose_document(liste_documents):
     return user_document_choice
 
 def display_menu():
-    print("""
-        ==========================================================================
-        Available actions: 
-        1. Consult 
-        2. Borrow 
-        3. Give back
-        4. Add Document (admin) 
-        5. Remove Document (admin)
-        0. Exit
-        ==========================================================================
-        """)
     
     while(1):
+        print(menu())
         choosen_action = input("Choose action to execute (1 or 2 or ... or '0' to exit): ")
 
         if choosen_action == "0":
@@ -44,23 +46,22 @@ def display_menu():
             document_id = choose_document(list_documents)
             list_documents[document_id-1].consult()
             print("\n")
-            break
         elif choosen_action == "2":
             print("\nYou chose: '2. Borrow': ")
             #Borrow
-            break
+
         elif choosen_action == "3":
             print("\nYou chose: '3. Give back': ")
             #Give back
-            break
+
         elif choosen_action == "4":
             print("\nYou chose: 'Add Document (admin)': ")
             #Add Document
-            break
+
         elif choosen_action == "5":
             print("\nYou chose: 'Remove Document (admin)': ")
             #Remove Document
-            break
+
         else:
             print(f"\nError: choice not valid (or not exists yet): '{choosen_action}'")
 
