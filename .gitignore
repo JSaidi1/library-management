@@ -211,3 +211,7 @@ __marimo__/
 
 # test file
 **/ztest.py
+
+# tool to help developers in dev env
+**/scripts-dev-env-only
+
