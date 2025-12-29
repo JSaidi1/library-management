@@ -34,7 +34,7 @@ class Book(Document, Borrowable, Consultable):
         if self.is_borrowed == True: 
             raise DocumentAlreadyBorrowedException("You cannot borrow a book that has already been borrowed ...")
         else:
-            print("Emprunt réussi !")
+            print("Book loan successful !")
             self.is_borrowed = True
 
     def give_back(self):
