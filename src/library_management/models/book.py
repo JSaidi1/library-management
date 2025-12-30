@@ -46,3 +46,12 @@ class Book(Document, Borrowable, Consultable):
         
     def consult(self):
         super().consult()
+
+    def __eq__(self, other):
+        if isinstance(other, Book):
+            return (self.title == other.title and 
+                    self.year_of_publication == other.year_of_publication and 
+                    self.author == other.author and 
+                    self.nb_pages == other.nb_pages and 
+                    self.genre == other.genre)
+        return False

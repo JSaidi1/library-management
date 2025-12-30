@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 
+
 class Document(ABC):
     nb_document = 0
 
@@ -15,3 +16,4 @@ class Document(ABC):
     @classmethod
     def show_nbr_documents(cls):
         print(f"\nWe currently have {cls.nb_document} documents in our library.")
+    

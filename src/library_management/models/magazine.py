@@ -12,3 +12,11 @@ class Magazine(Document, Consultable):
 
     def consult(self):
         super().consult()
+
+    def __eq__(self, other):
+        if isinstance(other, Magazine):
+            return (self.title == other.title and 
+                    self.year_of_publication == other.year_of_publication and 
+                    self.number == other.number
+            )
+        return False
